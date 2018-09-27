@@ -41,15 +41,18 @@ void draw() {
   background(0);
 
   // setting the turtle position
-  image (turtle, width/4, turtleSpeed, 300, 300);
+  image (turtle, width/3.5, turtleSpeed, 300, 300);
 
   // setting the hare position
   image (hare, width/1.7, hareSpeed, 300, 300);
 
-  // setting the text that says the restart button
+  // setting the restart button
+  fill(150);
+  rect(0, 800, 650, 200);
   textSize(50);
   fill(random(0, 256), random(0, 256), random(0.256));
-  text("CLICK TO RESTART RACE", width/3, 100);
+  text("CLICK TO RESTART RACE", 10, height/2);
+
 
   // if the hare wins then show text that says that the hare won
   if (hareWin == true && turtleWin == false) {
@@ -70,7 +73,7 @@ void draw() {
     //deciding what the text should say
     text("TORTOISE WINS!", width/2, height/2);
   }
-  
+
   //if the restart variable is true
   if (restart == true) {
 
@@ -85,12 +88,12 @@ void draw() {
     hareWin = false;
 
     // setting the turtle position
-    image (turtle, width/4, turtleSpeed, 300, 300);
+    image (turtle, width/3.5, turtleSpeed, 300, 300);
 
     // setting the hare position
     image (hare, width/1.7, hareSpeed, 300, 300);
   }
-  
+
   //the restart variable is now false
   restart = false;
 }
@@ -129,7 +132,9 @@ void keyPressed() {
 
 //if the mouse is clicked
 void mousePressed() {
-  
-  //set the restart variable to true
-  restart = true;
+
+  //If the mouse is over top of where the button is
+  if (mouseX > 0 && mouseX < 650 && mouseY <1000 && mouseY >800) {
+    restart = true;
+  }
 }
